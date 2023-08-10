@@ -1,0 +1,35 @@
+import java.util.*;
+public class Main
+//print all subsequencess
+{ public static  ArrayList<Integer> list=new ArrayList<>();
+  public static ArrayList<Integer> arr=new ArrayList<>();
+  public static ArrayList<ArrayList<Integer>> res=new ArrayList<>();
+   public static int n;
+   public static  int target=4;
+    public static void rec(int i){
+    if(i>n-1){
+     ArrayList<Integer> ar=new ArrayList<>();
+     ar.addAll(list);
+     int sum=0;
+     for(Integer item:ar){
+         sum+=item;
+     }
+     if(sum==target)
+      res.add(ar);
+        return;
+    }
+    list.add(arr.get(i));
+    rec(i+1);
+    list.remove(list.indexOf(arr.get(i)));
+    rec(i+1);
+}
+	public static void main(String[] args) {
+	 System.out.println("Enter elements");
+	 Scanner sc=new Scanner(System.in);
+	 for(int i=1;i<=4;i++) 
+	  arr.add(sc.nextInt());
+	 n=arr.size();
+	 rec(0);
+	 System.out.println(res);
+	 System.out.println(res.size());	}
+}
